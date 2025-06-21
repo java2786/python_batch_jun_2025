@@ -1,0 +1,26 @@
+1. Even or Odd - done
+2. Voting/License Eligibility - done
+3. Find given number is positive, negative or zero - done 
+4. Find the largest of 2, 3 number - done 
+5. Devide check - 15, 3 - done
+6. Grade system - done
+7. Password check - enter pwd and confirm pwd 
+8. Leap year check - 2025
+
+9. Bill Calculator
+10. Simple Calculator
+11. Trafic light signal
+
+12. Atm machine
+13. Find if given sides are of a right triangle => H2 = B2 + P2
+14. Temprature
+
+15. Find if number has 3 digits
+16. print 1 - N 
+17. Sum 1 - N 
+18. Table 
+19. Factorial 
+20. number digits
+21. reverse  -> palindrom
+22. sum all the digits 
+23. prime number 
