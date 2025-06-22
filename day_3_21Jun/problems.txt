@@ -20,7 +20,16 @@
 17. Sum 1 - N 
 18. Table 
 19. Factorial 
-20. number digits
+20. count digits
+
 21. reverse  -> palindrom
 22. sum all the digits 
-23. prime number 
+23. given number is a prime number
+    find all the prime numbers from 1 to N
+24. FizzBuzz Game 
+    Leetcode - 412. Fizz Buzz
+25. 1 - N 
+    print squares, print cubes, sum of all squares,...
+
+    1 - 5
+    55 
