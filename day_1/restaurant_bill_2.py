@@ -37,7 +37,7 @@ cdAmount = coldDrinkPrice * coldDrinkQuantity
 print("\n\n===========Mohan's Bill=============")
 print(f"Dosa: {dosaQuantity}x Rs {dosaPrice} = {dosaAmount}")
 print(f"Idli: {idliQuantity}x Rs {idliPrice} = {idliAmount}")
-print(f"Dosa: {coldDrinkQuantity}x Rs {coldDrinkPrice} = {cdAmount}")
+print(f"ColdDrink: {coldDrinkQuantity}x Rs {coldDrinkPrice} = {cdAmount}")
 print("--------------------------------------------------------------------")
 print(f"Total bill: Rs {dosaAmount + idliAmount + cdAmount}")
 print("Thank you")
