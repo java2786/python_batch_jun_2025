@@ -1,0 +1,24 @@
+Basics – Creation, Traversal, Indexing
+    Create a list/array of 5 integers and print each element.
+    Input 10 numbers into a list and print them in reverse order.
+    Find the sum of all elements in an array.
+    Count how many even and odd numbers are in an array.
+    Find the maximum and minimum elements in an array.
+    Calculate the average of numbers stored in an array.
+    Count how many numbers are greater than a given value X.
+    Search for an element in a list (linear search).
+    Print all elements at even indexes.
+    Print the array/list in reverse without using built-in reverse function.
+
+Modifications and Insert/Delete
+    Insert an element at the beginning and end of an array.
+    Delete the last element from a list.
+    Delete element at a specific index.
+    Replace all occurrences of a given element with another.
+    Take 5 inputs and create a list of their squares.
+    Create a list of n elements and swap first and last.
+    Remove all negative numbers from a list.
+    Double each value in the list and store in new list.
+    Create a list with only even elements from original list.
+    Create a list of absolute values from a list with positive/negative numbers.
+    Solve above problems with python
