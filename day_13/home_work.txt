@@ -1,0 +1,10 @@
+Create class 'ZomatOrder'
+
+	customer name
+	dish name
+	price 
+
+	method -> generate bill
+		18% gst
+
+		
