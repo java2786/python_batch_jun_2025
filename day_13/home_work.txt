@@ -7,4 +7,9 @@ Create class 'ZomatOrder'
 	method -> generate bill
 		18% gst
 
-		
+order1 =	ZomatOrder("name", "dish", 300)
+order2 =	ZomatOrder("name", "dish", 300)
+
+order1.generateBill()
+order2.generateBill()
+

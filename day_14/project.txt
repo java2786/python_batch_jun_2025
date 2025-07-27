@@ -1,0 +1,26 @@
+Tweet App is a console application for registered users to post new tweets, view tweets by other users. 
+    Guest users cannot see any tweets.
+    The core modules of tweet app are:
+        User registration and login
+        Post tweet
+        View all users' (own) tweets 
+        Forgot password option to reset password
+
+
+
+
+Application shall be a console application
+Application must be menu driven
+Application will comprise of two menus
+    Introduction menu for guest user
+        Register
+        Login
+        Forgot Password
+    Menu for logged in user
+        Post a tweet
+        View my tweets
+        Reset Password
+        Logout 
+Menu must show iteratively after every operation
+Maintain the status of currently logged in user in map object
+Update the status when user logs out

@@ -1,0 +1,11 @@
+hasA
+
+isA
+
+employee - manager 		=> manager is employee
+item - order 			=> order has item
+bank - sbi_bank 		=> sbi_bank is bank
+car - driver			=> driver has car
+car - engine 			=> car has engine
+engine - petrol_engine	=> petrol_engine is engine
+student - book 			=> student has book
