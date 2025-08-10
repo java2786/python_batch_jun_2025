@@ -1,0 +1,4 @@
+demo,demo@test.com,demo@123,0
+abc,abc,abc,0
+Arun Kumar,arun.kumar@ymail.com,arun@kumar,0
+test,test,test,0
