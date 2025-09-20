@@ -1,0 +1,16 @@
+Create environment
+$ python3 -m venv my_env
+
+activate
+=> Windows
+$ my_env/Scripts/activate.bat
+=> Linux/Mac
+$ source my_env/bin/activate
+
+deactivate
+$ deactivate
+
+===> you will get switched to my_env
+
+$ my_env/Scripts/pip install pyqt5
+$ my_env/Scripts/pip install pyqt5-tools~=5.15
