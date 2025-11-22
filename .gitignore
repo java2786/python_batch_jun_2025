@@ -104,3 +104,59 @@
 docs/.~lock.H&T 5.0 DigitalBooks-Use Case Java AWS - V1.docx#
 
 !aws/AngularApp.zip
+
+
+## Django
+# Python bytecode
+/**/__pycache__/
+/**/*.py[cod]
+
+# Environment variables
+/**/.env
+
+# Virtual environment
+/**/venv/
+/**/env/
+/**/.venv/
+/**/.env/
+/**/myenv/
+
+# Django migrations
+/**/migrations/*
+
+# Database files
+/**/db.sqlite3
+
+# Logs
+/**/*.log
+
+# Static files
+/**/staticfiles/
+/**/*.static/
+
+# Media files
+/**/media/
+
+# IDE and editor files
+/**/.vscode/
+/**/.idea/
+/**/*.swp
+/**/*.swo
+/**/*.sublime-project
+/**/*.sublime-workspace
+
+# MacOS files
+/**/.DS_Store
+
+# Temporary files
+/**/*.tmp
+/**/*.temp
+/**/*.bak
+/**/*.orig
+
+# Other files
+/**/*.pot
+/**/*.py~ 
+
+# Settings files (if you have custom settings)
+# settings.py

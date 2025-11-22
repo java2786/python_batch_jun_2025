@@ -1,0 +1,35 @@
+{% extends "todos/base.html" %}
+
+
+{% block content %}
+<h1>My Todo List</h1>
+<a href="{% url 'todo_create'%}">Create Todo</a>
+<div>
+    {% if todos %}
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Completed</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todos %}
+            <tr>
+                <td>{{todo.title}}</td>
+                <td>{{todo.description}}</td>
+                <td>{{todo.completed}}</td>
+                <td>{{todo.created_at}}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No todo found in DB.</p>
+    {% endif %}
+
+    {% endblock %}
+</div>

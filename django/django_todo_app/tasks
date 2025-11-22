@@ -1,0 +1,19 @@
+create venv
+activate venv
+
+install django using pip
+pip will ask to update itself
+
+
+ready to create django project
+
+django-admin startproject todoproject .
+
+python manage.py startapp todos
+
+
+# Talk to database 
+python manage.py makemigrations
+python manage.py migrate
+
+View -> 
