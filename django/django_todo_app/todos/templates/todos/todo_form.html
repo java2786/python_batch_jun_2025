@@ -8,7 +8,7 @@
         <h1>Create Todo</h1>
     {% endif %}
 
-    <form method='POST' action="/todos/create/">
+    <form id="multiActionForm" method='POST'>
         {% csrf_token %}
         Title: <input name="title" value="{{todo.title}}" required /> </br>
         Description: <input name="description" value="{{todo.description}}" required /> </br>
@@ -18,10 +18,18 @@
         {% endif %}
 
         {% if todo %}
-            <button type="submit">Edit</button>
+            <button type="submit" onclick="submitForm('{% url 'todo_update' todo.pk %})">Edit</button>
         {% else %}
-            <button type="submit">Create</button>
+            <button type="submit" onclick="submitForm('{% url 'todo_create' %}')">Create</button>
         {% endif %}
 
     </form>
 {% endblock %}
+
+<script>
+    function submitForm(actionUrl) {
+        const form = document.getElementById('multiActionForm');
+        form.action = actionUrl;  // Set the form action to the desired URL
+        form.submit();             // Submit the form
+    }
+</script>

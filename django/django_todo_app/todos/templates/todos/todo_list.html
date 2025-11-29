@@ -3,25 +3,30 @@
 
 {% block content %}
 <h1>My Todo List</h1>
-<a href="{% url 'todo_create'%}">Create Todo</a>
+<a href="{% url 'todo_create'%}">Create Todo - by name</a>
+<a href="/todos/create/">Create Todo - by url</a>
 <div>
     {% if todos %}
     <table>
         <thead>
             <tr>
+                <th>SNo</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Completed</th>
                 <th>Created</th>
+                <th>-</th>
             </tr>
         </thead>
         <tbody>
             {% for todo in todos %}
             <tr>
+                <td>{{todo.pk}}</td>
                 <td>{{todo.title}}</td>
                 <td>{{todo.description}}</td>
                 <td>{{todo.completed}}</td>
                 <td>{{todo.created_at}}</td>
+                <td><a href="/todos/update/{{todo.pk}}">Edit</a></td>                
             </tr>
 
             {% endfor %}

@@ -12,6 +12,7 @@ def todo_list(request):
     
 
 def todo_create(request):
+    print("Request method create: ",request.method)
     if request.method == 'POST':
         print("*"*50)
         title = request.POST.get('title')
@@ -32,12 +33,14 @@ def todo_create(request):
 def todo_update(request, pk):
     todo = get_object_or_404(Todo, pk=pk)
     
-    if request.mentod=='POST':
+    if request.method=='POST':
         todo.title = request.POST.get('title')
         todo.description = request.POST.get('description')
-        todo.completed = request.POST.get('completed')
+        todo.completed = request.POST.get('completed') == 'on'
         
         todo.save()
+        # todo.save(update_fields=['title','description', 'completed'])
+        # Todo.objects.filter(pk=pk).update(title='some value')
         return redirect('todo_list')
     else:
         return render(request, 'todos/todo_form.html', {'todo': todo})
