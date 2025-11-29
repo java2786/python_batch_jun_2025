@@ -1,0 +1,86 @@
+{% extends 'todos/base.html' %}  
+  
+{% block content %}  
+<h1>User Profile</h1>  
+  
+<!-- User Information Card -->  
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 30px;">  
+    <div style="display: flex; justify-content: space-between; align-items: center;">  
+        <div>  
+            <h2 style="color: #007bff; margin: 0 0 10px 0;">  
+                {% if user.first_name %}  
+                    {{ user.first_name }} {{ user.last_name }}  
+                {% else %}  
+                    {{ user.username }}  
+                {% endif %}  
+            </h2>  
+            <p style="margin: 5px 0; color: #666;"><strong>Username:</strong> {{ user.username }}</p>  
+            <p style="margin: 5px 0; color: #666;"><strong>Email:</strong> {{ user.email }}</p>  
+            <p style="margin: 5px 0; color: #666;"><strong>Member Since:</strong> {{ user.date_joined|date:"d M Y" }}</p>  
+        </div>  
+        <div>  
+            <a href="{% url 'edit_profile' %}" class="btn">Edit Profile</a>  
+            <a href="{% url 'change_password' %}" class="btn btn-danger">Change Password</a>  
+        </div>  
+    </div>  
+</div>  
+  
+<!-- Statistics Dashboard -->  
+<h2>Todo Statistics</h2>  
+<div style="display: flex; justify-content: space-around; margin: 20px 0; padding: 20px; background-color: #f8f9fa; border-radius: 10px;">  
+    <div style="text-align: center;">  
+        <h3 style="color: #007bff; margin: 0; font-size: 36px;">{{ total_todos }}</h3>  
+        <p style="color: #666; margin: 10px 0;">Total Todos</p>  
+    </div>  
+    <div style="text-align: center;">  
+        <h3 style="color: #28a745; margin: 0; font-size: 36px;">{{ completed_todos }}</h3>  
+        <p style="color: #666; margin: 10px 0;">Completed</p>  
+    </div>  
+    <div style="text-align: center;">  
+        <h3 style="color: #ffc107; margin: 0; font-size: 36px;">{{ pending_todos }}</h3>  
+        <p style="color: #666; margin: 10px 0;">Pending</p>  
+    </div>  
+    <div style="text-align: center;">  
+        <h3 style="color: #17a2b8; margin: 0; font-size: 36px;">{{ completion_percentage }}%</h3>  
+        <p style="color: #666; margin: 10px 0;">Completion Rate</p>  
+    </div>  
+</div>  
+  
+<!-- Progress Bar -->  
+<div style="margin: 30px 0;">  
+    <p style="color: #666; margin-bottom: 10px;"><strong>Overall Progress:</strong></p>  
+    <div style="background-color: #e9ecef; height: 30px; border-radius: 15px; overflow: hidden;">  
+        <div style="background-color: #28a745; height: 100%; width: {{ completion_percentage }}%;   
+                    display: flex; align-items: center; justify-content: center; color: white;   
+                    font-weight: bold; transition: width 0.3s ease;">  
+            {% if completion_percentage > 0 %}{{ completion_percentage }}%{% endif %}  
+        </div>  
+    </div>  
+</div>  
+  
+<!-- Recent Todos -->  
+<h2>Recent Todos</h2>  
+{% if recent_todos %}  
+    <div style="margin-top: 20px;">  
+        {% for todo in recent_todos %}  
+        <div style="border-left: 4px solid {% if todo.completed %}#28a745{% else %}#ffc107{% endif %};   
+                    padding: 10px 15px; margin-bottom: 10px; background-color: #f8f9fa; border-radius: 5px;">  
+            <strong style="color: {% if todo.completed %}#155724{% else %}#333{% endif %};">  
+                {{ todo.title }}  
+            </strong>  
+            {% if todo.completed %}  
+                <span style="color: green; font-size: 12px; margin-left: 10px;">✓ Completed</span>  
+            {% endif %}  
+            <br>  
+            <small style="color: #999;">{{ todo.created_at|date:"d M Y, h:i A" }}</small>  
+        </div>  
+        {% endfor %}  
+    </div>  
+{% else %}  
+    <p style="color: #999; text-align: center; padding: 20px;">No todos yet. Start creating!</p>  
+{% endif %}  
+  
+<div style="text-align: center; margin-top: 30px;">  
+    <a href="{% url 'todo_list' %}" class="btn">View All Todos</a>  
+</div>  
+{% endblock %} 

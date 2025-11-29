@@ -1,0 +1,38 @@
+{% extends 'todos/base.html' %}  
+  
+{% block content %}  
+<h1>My Todo List</h1>  
+  
+<a href="{% url 'todo_create' %}" class="btn">Add New Todo</a>  
+  
+<div style="margin-top: 30px;">  
+    {% if todos %}  
+        {% for todo in todos %}  
+        <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 5px; {% if todo.completed %}background-color: #d4edda;{% endif %}">  
+            <h3 style="color: {% if todo.completed %}#155724{% else %}#333{% endif %}; margin-bottom: 10px;">  
+                {{ todo.title }}  
+                {% if todo.completed %}  
+                    <span style="color: green; font-size: 14px;">✓ Completed</span>  
+                {% endif %}  
+            </h3>  
+              
+            {% if todo.description %}  
+            <p style="color: #666; margin-bottom: 10px;">{{ todo.description }}</p>  
+            {% endif %}  
+              
+            <small style="color: #999;">Created: {{ todo.created_at|date:"d M Y, h:i A" }}</small>  
+              
+            <div style="margin-top: 15px;">  
+                <a href="{% url 'todo_toggle' todo.pk %}" class="btn btn-success" style="font-size: 14px;">  
+                    {% if todo.completed %}Mark Incomplete{% else %}Mark Complete{% endif %}  
+                </a>  
+                <a href="{% url 'todo_update' todo.pk %}" class="btn" style="font-size: 14px;">Edit</a>  
+                <a href="{% url 'todo_delete' todo.pk %}" class="btn btn-danger" style="font-size: 14px;">Delete</a>  
+            </div>  
+        </div>  
+        {% endfor %}  
+    {% else %}  
+        <p style="text-align: center; color: #999; margin-top: 50px;">No todos yet. Create your first todo!</p>  
+    {% endif %}  
+</div>  
+{% endblock %}

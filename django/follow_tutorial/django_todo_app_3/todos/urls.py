@@ -1,0 +1,21 @@
+from django.urls import path  
+from . import views  
+  
+urlpatterns = [  
+    # Todo URLs  
+    path('', views.todo_list, name='todo_list'),  
+    path('create/', views.todo_create, name='todo_create'),  
+    path('update/<int:pk>/', views.todo_update, name='todo_update'),  
+    path('delete/<int:pk>/', views.todo_delete, name='todo_delete'),  
+    path('toggle/<int:pk>/', views.todo_toggle, name='todo_toggle'),  
+      
+    # Authentication URLs  
+    path('register/', views.register_view, name='register'),  
+    path('login/', views.login_view, name='login'),  
+    path('logout/', views.logout_view, name='logout'),  
+      
+    # Profile URLs  
+    path('profile/', views.profile_view, name='profile'),  
+    path('profile/edit/', views.edit_profile_view, name='edit_profile'),  
+    path('profile/change-password/', views.change_password_view, name='change_password'),  
+]

@@ -1,0 +1,26 @@
+{% extends 'todos/base.html' %}  
+  
+{% block content %}  
+<h1>{% if todo %}Edit Todo{% else %}Create New Todo{% endif %}</h1>  
+  
+<form method="POST">  
+    {% csrf_token %}  
+      
+    <label for="title">Title:</label>  
+    <input type="text" id="title" name="title" value="{{ todo.title }}" required>  
+      
+    <label for="description">Description:</label>  
+    <textarea id="description" name="description">{{ todo.description }}</textarea>  
+      
+    {% if todo %}  
+    <label>  
+        <input type="checkbox" name="completed" {% if todo.completed %}checked{% endif %}>  
+        Mark as completed  
+    </label>  
+    <br><br>  
+    {% endif %}  
+      
+    <button type="submit" class="btn">{% if todo %}Update{% else %}Create{% endif %}</button>  
+    <a href="{% url 'todo_list' %}" class="btn btn-danger">Cancel</a>  
+</form>  
+{% endblock %} 

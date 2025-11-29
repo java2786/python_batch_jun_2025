@@ -1,0 +1,21 @@
+{% extends 'todos/base.html' %}  
+  
+{% block content %}  
+<h1>Login</h1>  
+  
+<form method="POST">  
+    {% csrf_token %}  
+      
+    <label for="username">Username:</label>  
+    <input type="text" id="username" name="username" required>  
+      
+    <label for="password">Password:</label>  
+    <input type="password" id="password" name="password" required>  
+      
+    <button type="submit" class="btn">Login</button>  
+</form>  
+  
+<div class="form-link">  
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>  
+</div>  
+{% endblock %} 
