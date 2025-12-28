@@ -7,6 +7,7 @@ from django.http import HttpResponse
 #     pass 
 
 def todo_list(request):
+    # read all todos from the database
     todos = Todo.objects.all() 
     return render(request, 'todos/todo_list.html', {'todos': todos})
     
