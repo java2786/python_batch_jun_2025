@@ -1,0 +1,145 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Dashboard - Django OAuth App</title>  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">  
+    <style>  
+        body {  
+            background-color: #f8f9fa;  
+        }  
+        .profile-card {  
+            background: white;  
+            border-radius: 10px;  
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);  
+        }  
+        .profile-header {  
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  
+            color: white;  
+            border-radius: 10px 10px 0 0;  
+            padding: 2rem;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <!-- Navigation Bar -->  
+    <nav class="navbar navbar-dark bg-dark">  
+        <div class="container">  
+            <a class="navbar-brand" href="/">  
+                <strong>Django OAuth App</strong>  
+            </a>  
+            <div class="d-flex">  
+                <span class="navbar-text text-white me-3">  
+                    {{ user.email }}  
+                </span>  
+                <a class="btn btn-outline-danger btn-sm" href="{% url 'account_logout' %}">Logout</a>  
+            </div>  
+        </div>  
+    </nav>  
+  
+    <!-- Dashboard Content -->  
+    <div class="container mt-5">  
+        <div class="row justify-content-center">  
+            <div class="col-md-8">  
+                <div class="profile-card">  
+                    <div class="profile-header text-center">  
+                        <h2>User Dashboard</h2>  
+                        <p class="mb-0">Your Profile Information</p>  
+                    </div>  
+                      
+                    <div class="card-body p-4">  
+                        <h5 class="mb-4">Account Details</h5>  
+                          
+                        <div class="row mb-3">  
+                            <div class="col-md-4">  
+                                <strong>Email Address:</strong>  
+                            </div>  
+                            <div class="col-md-8">  
+                                {{ user.email }}  
+                            </div>  
+                        </div>  
+  
+                        <div class="row mb-3">  
+                            <div class="col-md-4">  
+                                <strong>Username:</strong>  
+                            </div>  
+                            <div class="col-md-8">  
+                                {{ user.username|default:"Not set" }}  
+                            </div>  
+                        </div>  
+  
+                        <div class="row mb-3">  
+                            <div class="col-md-4">  
+                                <strong>First Name:</strong>  
+                            </div>  
+                            <div class="col-md-8">  
+                                {{ user.first_name|default:"Not provided" }}  
+                            </div>  
+                        </div>  
+  
+                        <div class="row mb-3">  
+                            <div class="col-md-4">  
+                                <strong>Last Name:</strong>  
+                            </div>  
+                            <div class="col-md-8">  
+                                {{ user.last_name|default:"Not provided" }}  
+                            </div>  
+                        </div>  
+  
+                        <div class="row mb-3">  
+                            <div class="col-md-4">  
+                                <strong>Account Type:</strong>  
+                            </div>  
+                            <div class="col-md-8">  
+                                {% if social_account %}  
+                                    <span class="badge bg-primary">  
+                                        Google Account ({{ social_account.provider|title }})  
+                                    </span>  
+                                {% else %}  
+                                    <span class="badge bg-secondary">Regular Account</span>  
+                                {% endif %}  
+                            </div>  
+                        </div>  
+  
+                        <div class="row mb-3">  
+                            <div class="col-md-4">  
+                                <strong>Date Joined:</strong>  
+                            </div>  
+                            <div class="col-md-8">  
+                                {{ user.date_joined|date:"F d, Y" }}  
+                            </div>  
+                        </div>  
+  
+                        <div class="row mb-3">  
+                            <div class="col-md-4">  
+                                <strong>Last Login:</strong>  
+                            </div>  
+                            <div class="col-md-8">  
+                                {{ user.last_login|date:"F d, Y H:i" }}  
+                            </div>  
+                        </div>  
+  
+                        {% if social_account %}  
+                        <hr class="my-4">  
+                        <div class="alert alert-info">  
+                            <h6 class="alert-heading">Google OAuth Information</h6>  
+                            <p class="mb-0">  
+                                You logged in using your Google account.   
+                                Your account is securely linked with Google's authentication system.  
+                            </p>  
+                        </div>  
+                        {% endif %}  
+  
+                        <div class="mt-4 text-center">  
+                            <a href="/" class="btn btn-secondary">Back to Home</a>  
+                        </div>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>  
+</body>  
+</html>  

@@ -1,0 +1,20 @@
+GET https://jsonplaceholder.typicode.com/todos
+
+###
+
+GET https://jsonplaceholder.typicode.com/todos/2
+
+###
+
+DELETE https://jsonplaceholder.typicode.com/todos/2
+
+###
+
+POST https://jsonplaceholder.typicode.com/todos
+content-type: application/json
+
+{
+    "name": "ramesh"
+}
+###
+
